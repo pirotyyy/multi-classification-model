@@ -9,17 +9,11 @@ class BlobModel(nn.Module):
         input_features (int): Number of input features to the model
         output_features (int): Number of outputs features (number of output classes)
         hidden_units (int): Number of hidden units between layers, default 8
-
-        Returns:
-
-        Example:
         """
         super().__init__()
         self.linear_layer_stack = nn.Sequential(
             nn.Linear(in_features=input_features, out_features=hidden_units),
-            nn.ReLU(),
             nn.Linear(in_features=hidden_units, out_features=hidden_units),
-            nn.ReLU(),
             nn.Linear(in_features=hidden_units, out_features=output_features),
         )
 
